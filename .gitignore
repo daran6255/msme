@@ -1,0 +1,54 @@
+# ----------------------------
+# Python related
+# ----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ----------------------------
+# Virtual environments
+# ----------------------------
+venv/
+env/
+.env/
+.env.*   # any other env variants
+
+# ----------------------------
+# Flask/SQLAlchemy migrations
+# ----------------------------
+migrations/
+migrations/*
+
+# ----------------------------
+# OS generated files
+# ----------------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------------
+# IDE / Editor files
+# ----------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ----------------------------
+# Logs
+# ----------------------------
+*.log
+
+# ----------------------------
+# Excel / CSV / temporary files
+# ----------------------------
+*.xlsx
+*.xls
+*.csv
+*.db
+
+# ----------------------------
+# Backup / temp files
+# ----------------------------
+*.bak
+*.tmp
+*.swp
