@@ -12,5 +12,4 @@ pandas
 PyJWT
 SQLAlchemy
 openpyxl
-mysqlclient
 pydantic
