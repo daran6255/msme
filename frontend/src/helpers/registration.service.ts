@@ -3,7 +3,7 @@
 import axios from "axios";
 import { CandidateRegistration } from "./registration.model";
 
-const API_URL = "http://localhost:5000/api/v1/candidates"; // Change if needed
+const API_URL = "https://msme.winvinayafoundation.org/api/v1/candidates"; // Change if needed
 
 // Create Candidate
 export const createCandidate = async (data: CandidateRegistration) => {
