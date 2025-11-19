@@ -5,9 +5,12 @@ Werkzeug
 requests
 flask-jwt-extended
 psycopg2-binary
-flask-cors 
-flask-migrate 
+flask-cors
 python-dotenv
 pgeocode
 pandas
 PyJWT
+SQLAlchemy
+openpyxl
+mysqlclient
+pydantic
