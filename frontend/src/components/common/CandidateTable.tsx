@@ -163,7 +163,7 @@ const CandidateTable: React.FC = () => {
               <Th>Contact</Th>
               <Th>Gender</Th>
               <Th>Status</Th>
-              <Th>Pin Code</Th>
+              <Th>Disabled?</Th>
               <Th>Phone Type</Th>
               <Th textAlign="center">Actions</Th>
             </Tr>
@@ -181,7 +181,11 @@ const CandidateTable: React.FC = () => {
                     {item.status}
                   </Badge>
                 </Td>
-                <Td>{item.pin_code}</Td>
+                <Td>
+                  <Badge colorScheme={item.disability_cat ? "green" : "gray"}>
+                    {item.disability_cat ? "Yes" : "No"}
+                  </Badge>
+                </Td>
                 <Td>{item.phone_type}</Td>
                 <Td textAlign="center">
                   <IconButton

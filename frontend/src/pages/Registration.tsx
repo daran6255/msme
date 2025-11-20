@@ -25,6 +25,7 @@ const Registration: React.FC = () => {
     business_type: [],
     pin_code: "",
     udyam_certificate: false,
+    disability_cat: false,
     phone_type: "" as PhoneType,
     status: "Active",
   });
@@ -40,7 +41,10 @@ const Registration: React.FC = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "udyam_certificate" ? value === "true" : value,
+      [name]:
+      name === "udyam_certificate" || name === "disability_cat"
+        ? value === "true"
+        : value,
     }));
   };
 
@@ -100,48 +104,63 @@ const Registration: React.FC = () => {
             </Select>
           </FormControl>
 
+          {/* Disability Category */}
+          <FormControl isRequired>
+            <FormLabel>Disabled?</FormLabel>
+            <Select
+              name="disability_cat"
+              value={String(formData.disability_cat)}
+              onChange={handleChange}
+            >
+              <option value="">Select Option</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </Select>
+          </FormControl>
+
+
           {/* Business Type - Creatable Multi Select */}
-		<FormControl>
-		<FormLabel>Business Type</FormLabel>
-		<CreatableSelect
-			isMulti
-			placeholder="Type and press Enter (e.g., 'roti')"
-			onChange={handleBusinessTypeChange}
-			value={formData.business_type.map((item) => ({
-			label: item,
-			value: item,
-			}))}
-			options={[
-			{ label: "Retail", value: "Retail" },
-			{ label: "Manufacturing", value: "Manufacturing" },
-			{ label: "Service", value: "Service" },
-			{ label: "Others", value: "Others" },
-			]}
-			styles={{
-			control: (provided) => ({
-				...provided,
-				backgroundColor: "white",
-				borderColor: "#CBD5E0", // Chakra gray.300
-			}),
-			input: (provided) => ({
-				...provided,
-				color: "black", // Ensures typing is visible
-			}),
-			option: (provided) => ({
-				...provided,
-				color: "black", // Dropdown option text color
-			}),
-			multiValueLabel: (provided) => ({
-				...provided,
-				color: "black", // Selected labels
-			}),
-			placeholder: (provided) => ({
-				...provided,
-				color: "#4A5568", // Chakra gray.600
-			}),
-			}}
-		/>
-		</FormControl>
+          <FormControl>
+            <FormLabel>Business Type</FormLabel>
+            <CreatableSelect
+              isMulti
+              placeholder="Type and press Enter (e.g., 'roti')"
+              onChange={handleBusinessTypeChange}
+              value={formData.business_type.map((item) => ({
+              label: item,
+              value: item,
+              }))}
+              options={[
+              { label: "Retail", value: "Retail" },
+              { label: "Manufacturing", value: "Manufacturing" },
+              { label: "Service", value: "Service" },
+              { label: "Others", value: "Others" },
+              ]}
+              styles={{
+              control: (provided) => ({
+                ...provided,
+                backgroundColor: "white",
+                borderColor: "#CBD5E0", // Chakra gray.300
+              }),
+              input: (provided) => ({
+                ...provided,
+                color: "black", // Ensures typing is visible
+              }),
+              option: (provided) => ({
+                ...provided,
+                color: "black", // Dropdown option text color
+              }),
+              multiValueLabel: (provided) => ({
+                ...provided,
+                color: "black", // Selected labels
+              }),
+              placeholder: (provided) => ({
+                ...provided,
+                color: "#4A5568", // Chakra gray.600
+              }),
+              }}
+            />
+          </FormControl>
 
 
           {/* PIN Code */}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import Navbar from "../components/common/Navbar";
 import Sidebar from "../components/common/Sidebar";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -7,6 +7,8 @@ import DashboardScoreCards from "../components/common/DashboardScoreCards";
 import CandidateTable from "../components/common/CandidateTable";
 import AttendanceTable from "../components/common/AttendanceTable";
 import BusinessTable from "../components/common/BusinessTable";
+import DashboardAttendanceCards from "../components/common/DashboardAttendanceCards";
+import BusinessDashboardCards from "../components/common/BusinessDashboardCards";
 
 const Dashboard: React.FC = () => {
   return (
@@ -46,6 +48,11 @@ const Dashboard: React.FC = () => {
         overflowY="auto"
         p={6}
       >
+          <Box mb={6}>
+            <Text fontSize="2xl" fontWeight="bold">
+              MSME Portal
+            </Text>
+          </Box>
         <Routes>
           {/* Default page → dashboard/home */}
           <Route
@@ -83,8 +90,12 @@ const Dashboard: React.FC = () => {
             element={
               <>
                 <Box mb={6}>
+                  <DashboardAttendanceCards />
+                </Box>
+                <Box mb={6}>
                   <AttendanceTable />
                 </Box>
+
               </>
             }
           />
@@ -92,6 +103,9 @@ const Dashboard: React.FC = () => {
             path="business"
             element={
               <>
+                <Box mb={6}>
+                  <BusinessDashboardCards />
+                </Box>
                 <Box mb={6}>
                   <BusinessTable />
                 </Box>

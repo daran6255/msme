@@ -60,6 +60,19 @@ const CandidateEditModal: React.FC<Props> = ({ isOpen, onClose, candidate, setCa
           </FormControl>
 
           <FormControl mb={3}>
+            <FormLabel>Disabled?</FormLabel>
+            <Select
+              value={candidate.disability_cat ? "true" : "false"}
+              onChange={(e) =>
+                setCandidate({ ...candidate, disability_cat: e.target.value === "true" })
+              }
+            >
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </Select>
+          </FormControl>
+
+          <FormControl mb={3}>
             <FormLabel>Business Type</FormLabel>
             <Input
               value={candidate.business_type.join(", ")}

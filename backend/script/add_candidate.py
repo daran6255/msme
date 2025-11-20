@@ -7,7 +7,7 @@ import time
 
 # Config
 EXCEL_FILE = "script\candidates_input.xlsx"
-API_URL = "http://localhost:5000/api/v1/candidates/create"
+API_URL = "http://127.0.0.1:5000/api/v1/candidates/create"
 
 # Setup geopy
 geolocator = Nominatim(user_agent="candidate_pincode_lookup")
@@ -45,6 +45,7 @@ def main():
         taluk = row["Taluk"]
         udyam_certificate = row["Udyam_Certificate"]
         phone_model = row["phone_model"]
+        disability_cat = row["disabled"]
 
         business_type = transform_business_type(business_type_raw)
         pin_code = lookup_pincode(state, district, taluk)
@@ -61,6 +62,7 @@ def main():
             "pin_code": pin_code,
             "udyam_certificate": True if udyam_certificate.strip().upper() == "TRUE" else False,
             "phone_type": phone_model,
+            "disability_cat": disability_cat,
             "state": state,
             "district": district,
             "taluk": taluk

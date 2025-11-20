@@ -36,7 +36,7 @@ import { getAllCandidates } from "../../helpers/registration.service";
 import { AttendanceModel } from "../../helpers/attendance.model";
 import { CandidateRegistration } from "../../helpers/registration.model";
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 5;
 
 const AttendanceTable: React.FC = () => {
   // Data
@@ -208,7 +208,7 @@ const AttendanceTable: React.FC = () => {
               {/* These can be fetched dynamically; keeping static sample values */}
               <option value="Financial Literacy">Financial Literacy</option>
               <option value="Digital Marketing">Digital Marketing</option>
-              <option value="Soft Skills">Soft Skills</option>
+              <option value="Digital Payments">Digital Payments</option>
             </Select>
           </Box>
 
@@ -303,7 +303,7 @@ const AttendanceTable: React.FC = () => {
               >
                 <option value="financial_literacy">Financial Literacy</option>
                 <option value="digital_marketing">Digital Marketing</option>
-                <option value="soft_skills">Soft Skills</option>
+                <option value="digital_payments">Digital Payments</option>
               </Select>
             </FormControl>
 

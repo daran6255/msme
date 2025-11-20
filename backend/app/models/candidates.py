@@ -28,3 +28,4 @@ class Candidate(BaseModel):
 
     # Status field with default "Active"
     status = db.Column(status_enum, nullable=False, default="Active")
+    disability_cat = db.Column(db.Boolean, nullable=False, default=True)

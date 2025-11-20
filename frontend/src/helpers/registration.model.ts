@@ -13,6 +13,7 @@ export interface CandidateRegistration {
   pin_code: string;
   udyam_certificate: boolean;
   phone_type: PhoneType;
+  disability_cat: boolean; // Added field
   state?: string;
   district?: string;
   taluk?: string;

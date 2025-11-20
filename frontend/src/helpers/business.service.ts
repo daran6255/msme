@@ -3,7 +3,7 @@
 import axios from "axios"; // Make sure you already have this
 import { BusinessModel } from "./business.model";
 
-const API_URL = "https://msme.winvinayafoundation.org/api/v1/business";
+const API_URL = "http://127.0.0.1:5000/api/v1/business";
 
 // Create Business record
 export const createBusiness = async (data: BusinessModel): Promise<{ message: string; id: string }> => {

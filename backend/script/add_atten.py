@@ -4,8 +4,8 @@ import math
 
 # ---------------- CONFIG ----------------
 EXCEL_FILE = "script/attendance_data.xlsx"  # Path to your Excel
-CANDIDATE_API = "http://localhost:5000/api/v1/candidates/get-all"
-ATTENDANCE_API = "http://localhost:5000/api/v1/attendance/create"
+CANDIDATE_API = "http://127.0.0.1:5000/api/v1/candidates/get-all"
+ATTENDANCE_API = "http://127.0.0.1:5000/api/v1/attendance/create"
 
 # ---------------- HELPERS ----------------
 def str_to_bool(value: str) -> bool:

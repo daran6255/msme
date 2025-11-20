@@ -1,6 +1,7 @@
 import React from "react";
-import { Flex, Text, Button } from "@chakra-ui/react";
+import { Flex, Button, Image } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
@@ -24,9 +25,16 @@ const Navbar: React.FC = () => {
       align="center"
       zIndex={1000}
     >
-      <Text fontSize="xl" fontWeight="bold">
-        WinVinaya MSME Portal
-      </Text>
+      {/* Logo */}
+      <Image
+        src="/winvinaya_foundation_logo.png"
+        alt="WinVinaya Logo"
+        height="40px"
+        objectFit="contain"
+        cursor="pointer"
+        onClick={() => navigate("/dashboard")} // optional click to go home
+      />
+
       <Button colorScheme="whiteAlpha" onClick={handleLogout}>
         Logout
       </Button>

@@ -20,6 +20,7 @@ class CandidateSchema(BaseModel):
     pin_code: str
     udyam_certificate: bool
     phone_type: str
+    disability_cat: bool  # Added field
 
 
 # Schema for updating including status
@@ -46,6 +47,7 @@ def create_candidate():
             pin_code=data.pin_code,
             udyam_certificate=data.udyam_certificate,
             phone_type=data.phone_type,
+            disability_cat=data.disability_cat,  # Added
             state=location["state"],
             district=location["district"],
             taluk=location["city"],
@@ -81,6 +83,7 @@ def get_all_candidates():
             "pin_code": c.pin_code,
             "udyam_certificate": c.udyam_certificate,
             "phone_type": c.phone_type,
+            "disability_cat": c.disability_cat,  # Added
             "status": c.status
         }
         for c in candidates
@@ -106,6 +109,7 @@ def get_candidate_by_id(candidate_id):
         "pin_code": candidate.pin_code,
         "udyam_certificate": candidate.udyam_certificate,
         "phone_type": candidate.phone_type,
+        "disability_cat": candidate.disability_cat,  # Added
         "status": candidate.status
     }), 200
 
@@ -130,6 +134,7 @@ def update_candidates():
                     candidate.business_type = validated.business_type
                     candidate.udyam_certificate = validated.udyam_certificate
                     candidate.phone_type = validated.phone_type
+                    candidate.disability_cat = validated.disability_cat  # Added
                     candidate.pin_code = validated.pin_code
                     candidate.state = location["state"]
                     candidate.district = location["district"]
@@ -160,6 +165,7 @@ def update_candidate_by_id(candidate_id):
         candidate.business_type = data.business_type
         candidate.udyam_certificate = data.udyam_certificate
         candidate.phone_type = data.phone_type
+        candidate.disability_cat = data.disability_cat  # Added
         candidate.pin_code = data.pin_code
         candidate.state = location["state"]
         candidate.district = location["district"]
