@@ -45,40 +45,27 @@ const DashboardAttendanceCards: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const dm = attendanceData.filter(
-      (a) => a.session_name?.includes("Digital Marketing")
-    ).length;
+    // Function to count unique candidate IDs per session
+    const countUniqueBySession = (sessionName: string) => {
+      const candidatesSet = new Set(
+        attendanceData
+          .filter((a) => a.session_name?.includes(sessionName))
+          .map((a) => a.candidate_id) // Use candidate_id or unique field
+      );
+      return candidatesSet.size;
+    };
 
-    const dp = attendanceData.filter(
-      (a) => a.session_name?.includes("Digital Payments")
-    ).length;
-
-    const fl = attendanceData.filter(
-      (a) => a.session_name?.includes("Financial Literacy")
-    ).length;
-
-    setCounts({ digitalMarketing: dm, digitalPayments: dp, financialLiteracy: fl });
+    setCounts({
+      digitalMarketing: countUniqueBySession("Digital Marketing"),
+      digitalPayments: countUniqueBySession("Digital Payments"),
+      financialLiteracy: countUniqueBySession("Financial Literacy"),
+    });
   }, [attendanceData]);
 
   const cardData = [
-    {
-      label: "Digital Marketing",
-      count: counts.digitalMarketing,
-      icon: FaChartLine,
-      color: "teal.500",
-    },
-    {
-      label: "Digital Payments",
-      count: counts.digitalPayments,
-      icon: FaMobileAlt,
-      color: "orange.400",
-    },
-    {
-      label: "Financial Literacy",
-      count: counts.financialLiteracy,
-      icon: FaBook,
-      color: "purple.500",
-    },
+    { label: "Digital Marketing", count: counts.digitalMarketing, icon: FaChartLine, color: "teal.500" },
+    { label: "Digital Payments", count: counts.digitalPayments, icon: FaMobileAlt, color: "orange.400" },
+    { label: "Financial Literacy", count: counts.financialLiteracy, icon: FaBook, color: "purple.500" },
   ];
 
   return (
@@ -96,13 +83,9 @@ const DashboardAttendanceCards: React.FC = () => {
           <HStack spacing={4} align="center">
             <Icon as={card.icon} w={10} h={10} color={card.color} />
             <Box>
-              <Text fontSize="sm" color="gray.500">
-                {card.label}
-              </Text>
+              <Text fontSize="sm" color="gray.500">{card.label}</Text>
               <Stat>
-                <StatNumber fontSize="2xl" fontWeight="bold">
-                  {card.count}
-                </StatNumber>
+                <StatNumber fontSize="2xl" fontWeight="bold">{card.count}</StatNumber>
               </Stat>
             </Box>
           </HStack>
