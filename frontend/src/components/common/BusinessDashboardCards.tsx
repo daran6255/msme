@@ -11,7 +11,7 @@ import {
   Icon,
   Text,
 } from "@chakra-ui/react";
-import { FaDollarSign, FaUsers } from "react-icons/fa";
+import { FaRupeeSign, FaUsers } from "react-icons/fa";
 import { getAllBusiness } from "../../helpers/business.service";
 import { BusinessModel } from "../../helpers/business.model";
 
@@ -85,7 +85,7 @@ const BusinessDashboardCards: React.FC = () => {
   const cardData = [
     {
       label: "Avg Income",
-      icon: FaDollarSign,
+      icon: FaRupeeSign ,
       before: stats.avgIncomeBefore,
       after: stats.avgIncomeAfter,
       color: "green.400",
