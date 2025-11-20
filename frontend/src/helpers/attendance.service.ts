@@ -3,7 +3,7 @@
 import axios from "axios";
 import { AttendanceModel } from "./attendance.model";
 
-const API_URL = "http://127.0.0.1:5000/api/v1/attendance"; // Change base URL only if needed
+const API_URL = "https://msme.winvinayafoundation.org/api/v1/attendance"; // Change base URL only if needed
 
 // Create Attendance
 export const createAttendance = async (data: AttendanceModel): Promise<{ message: string; id: string }> => {

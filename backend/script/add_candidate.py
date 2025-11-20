@@ -7,7 +7,7 @@ import time
 
 # Config
 EXCEL_FILE = "script\candidates_input.xlsx"
-API_URL = "http://127.0.0.1:5000/api/v1/candidates/create"
+API_URL = "https://msme.winvinayafoundation.org/api/v1/candidates/create"
 
 # Setup geopy
 geolocator = Nominatim(user_agent="candidate_pincode_lookup")

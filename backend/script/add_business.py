@@ -4,8 +4,8 @@ import math
 
 # ---------------- CONFIG ----------------
 EXCEL_FILE = "script/business_data.xlsx"  # Path to your Excel
-CANDIDATE_API = "http://127.0.0.1:5000/api/v1/candidates/get-all"
-BUSINESS_API = "http://127.0.0.1:5000/api/v1/business"
+CANDIDATE_API = "https://msme.winvinayafoundation.org/api/v1/candidates/get-all"
+BUSINESS_API = "https://msme.winvinayafoundation.org/api/v1/business"
 
 # ---------------- HELPERS ----------------
 def safe_value(val, default=None):
